@@ -102,6 +102,9 @@ export const RegisterForm = ({ onSuccess }) => {
             <option value="admin">Inventory Administrator</option>
           </select>
         </div>
+        <p className="mt-2 text-[11px] text-slate-500 leading-5">
+          Choose <strong>Inventory Administrator</strong> to register as an admin user. Admins can edit inventory, restock vehicles, and manage listings.
+        </p>
       </div>
 
       <button

@@ -96,23 +96,28 @@ export const LoginForm = ({ onSuccess }) => {
       </button>
 
       <div className="pt-2 text-center text-xs text-slate-400">
-        <p className="mb-2">Quick Demo Fill:</p>
-        <div className="flex justify-center gap-2">
+        <p className="mb-2 font-semibold text-slate-200">Quick Demo Credentials</p>
+        <div className="flex flex-col sm:flex-row justify-center gap-2">
           <button
             type="button"
             onClick={() => handleDemoFill('user')}
-            className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
           >
             Demo User
           </button>
           <button
             type="button"
             onClick={() => handleDemoFill('admin')}
-            className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
           >
             Demo Admin
           </button>
         </div>
+        <p className="mt-3 text-[11px] text-slate-500 leading-5">
+          Admin: <span className="text-slate-200">admin@autovault.com / admin123</span>
+          <br />
+          User: <span className="text-slate-200">john@example.com / password123</span>
+        </p>
       </div>
     </form>
   );

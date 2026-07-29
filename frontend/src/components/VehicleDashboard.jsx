@@ -64,10 +64,47 @@ export const VehicleDashboard = ({ onEditVehicle, onAddVehicle, onRestockVehicle
   // Metrics
   const totalVehiclesCount = vehicles.length;
   const totalQuantitySum = vehicles.reduce((sum, v) => sum + (v.quantity || 0), 0);
+  const inventoryValue = vehicles.reduce((sum, v) => sum + ((v.price || 0) * (v.quantity || 0)), 0);
   const outOfStockCount = vehicles.filter((v) => v.quantity <= 0).length;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Hero Banner */}
+      <div className="glass-card p-6 rounded-3xl border border-slate-800/80 mb-8">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-6">
+          <div className="max-w-3xl">
+            <p className="text-xs uppercase tracking-[0.32em] text-sky-400 font-semibold mb-3">
+              Premium dealership dashboard
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+              Manage high-value inventory with clarity and confidence.
+            </h2>
+            <p className="mt-4 text-sm text-slate-400 max-w-2xl">
+              AutoVault helps sales and stock teams run a modern dealership experience with deeper search,
+              smarter stock alerts and polished inventory cards for top sedan, SUV, truck, and sport models.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 w-full max-w-sm">
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 text-center">
+              <p className="text-sm text-slate-400">Brands</p>
+              <p className="mt-2 text-xl font-bold text-white">10+</p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 text-center">
+              <p className="text-sm text-slate-400">Live models</p>
+              <p className="mt-2 text-xl font-bold text-white">{totalVehiclesCount}</p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 text-center">
+              <p className="text-sm text-slate-400">Stock value</p>
+              <p className="mt-2 text-xl font-bold text-white">${inventoryValue.toLocaleString()}</p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 text-center">
+              <p className="text-sm text-slate-400">Fast restocks</p>
+              <p className="mt-2 text-xl font-bold text-white">24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Header & Stats Banner */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
